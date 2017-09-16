@@ -1,0 +1,53 @@
+body {
+    background-color: #E0DCDB;
+}
+
+#simonGame {
+    background-color:black;
+    height:800px;
+    width:800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 99;
+}
+
+#green {
+    background-color: green;
+    height:350px;
+    width:350px;
+    position: relative;
+    float: left;
+    border-radius: 100% 0 0 0;
+    z-index: 100;
+}
+
+#red {
+    background-color: red;
+    height:350px;
+    width:350px;
+    position: relative;
+    float: right;
+    border-radius: 0 100% 0 0;
+    z-index: 100;
+}
+
+#yellow {
+    background-color: yellow;
+    height:350px;
+    width:350px;
+    position: relative;
+    float: left;
+    border-radius: 0 0 0 100%;
+    z-index: 100
+}
+
+#blue {
+    background-color: blue;
+    height:350px;
+    width:350px;
+    position: relative;
+    float: right;
+    border-radius: 0 0 100% 0;
+    z-index: 100
+}
+
