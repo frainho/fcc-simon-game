@@ -4,18 +4,21 @@ body {
 
 #simonGame {
     background-color:black;
-    height:800px;
-    width:800px;
+    height:450px;
+    width:450px;
     margin: 0 auto;
     position: relative;
     z-index: 99;
+    border-radius: 50%;
 }
 
 #green {
     background-color: green;
-    height:350px;
-    width:350px;
+    height: 180px;
+    width:180px;
     position: relative;
+    top: 30px;
+    left:35px;
     float: left;
     border-radius: 100% 0 0 0;
     z-index: 100;
@@ -23,9 +26,11 @@ body {
 
 #red {
     background-color: red;
-    height:350px;
-    width:350px;
+    height: 180px;
+    width:180px;
     position: relative;
+    top: 30px;
+    left: -35px;
     float: right;
     border-radius: 0 100% 0 0;
     z-index: 100;
@@ -33,21 +38,35 @@ body {
 
 #yellow {
     background-color: yellow;
-    height:350px;
-    width:350px;
+    height:180px;
+    width:180px;
     position: relative;
+    top: 40px;
+    left:35px;
     float: left;
     border-radius: 0 0 0 100%;
-    z-index: 100
+    z-index: 100;
 }
 
 #blue {
     background-color: blue;
-    height:350px;
-    width:350px;
+    height: 180px;
+    width:180px;
     position: relative;
+    top: 40px;
+    left: -35px;
     float: right;
     border-radius: 0 0 100% 0;
-    z-index: 100
+    z-index: 100;
 }
 
+#centerBlack {
+    height: 200px;
+    width:200px;
+    border-radius: 50%;
+    left:125px;
+    top: 125px;
+    position: relative;
+    z-index: 101;
+    background-color: black;
+}
