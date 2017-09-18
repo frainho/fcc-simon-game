@@ -1,5 +1,6 @@
 body {
     background-color: #E0DCDB;
+    
 }
 
 #simonGame {
@@ -69,4 +70,50 @@ body {
     position: relative;
     z-index: 101;
     background-color: black;
+    text-align: center; 
+}
+
+#simonText {
+    color:white;
+    position: relative;
+    bottom: 140px;
+    font-size: 2.75em;
+    font-family: electrFont;
+    z-index: 101;
+}
+
+#clearFloat {
+    clear:both;
+}
+
+
+#visor {
+    position: absolute;
+    right: 78%;
+    bottom: 90px;
+    width: 25px;
+    margin:auto;
+    text-align: center;
+    z-index: 101;
+}
+
+#strict {
+    position: absolute;
+    bottom: 90px;
+    right: 8%;
+    text-align: center;
+    z-index: 101;
+}
+
+#start {
+    position: absolute;
+    bottom: 90px;
+    right: 47%;
+    text-align: center;
+    z-index: 102;
+}
+
+@font-face {
+    font-family: electrFont;
+    src: url(../fonts/electr.ttf);
 }

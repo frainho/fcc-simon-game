@@ -2,13 +2,21 @@
     <head>
         <title>Simon Game</title>
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
     <body>
         <h1>SimonGame</h1>
         <div id="simonGame">
             <div id="green"></div>
             <div id="red"></div>
-            <div id="centerBlack"></div>
+            <div id="centerBlack">
+                <span id="simonText">Simon</span>
+                <div id="clearFloat"></div>
+                <input id="visor" type="text">
+                <button id="strict">Strict Off</button>
+                <button id="start">Start</button>
+            </div>
             <div id="blue"></div>
             <div id="yellow"></div>
         </div>
