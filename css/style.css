@@ -95,25 +95,43 @@ body {
     margin:auto;
     text-align: center;
     z-index: 101;
+    background-color: black;
+    font-family: digiFont;
+    color:#CA070F;
 }
 
 #strict {
     position: absolute;
-    bottom: 90px;
-    right: 6%;
+    bottom: 65px;
+    right: 10%;
     text-align: center;
     z-index: 101;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border:none;
 }
 
 #start {
     position: absolute;
-    bottom: 90px;
-    right: 47%;
+    bottom: 65px;
+    right: 45%;
     text-align: center;
     z-index: 102;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    line-height:50px;
+    border:none;
 }
 
 @font-face {
     font-family: electrFont;
     src: url(../fonts/electr.ttf);
+}
+
+@font-face {
+    font-family: digiFont;
+    src: url(../fonts/DS-DIGI.ttf);
 }
