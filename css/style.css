@@ -100,7 +100,7 @@ body {
 #strict {
     position: absolute;
     bottom: 90px;
-    right: 8%;
+    right: 6%;
     text-align: center;
     z-index: 101;
 }
