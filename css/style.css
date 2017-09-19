@@ -126,6 +126,11 @@ body {
     border:none;
 }
 
+.selected {
+    background-color: white !important;
+}
+
+
 @font-face {
     font-family: electrFont;
     src: url(../fonts/electr.ttf);
@@ -133,5 +138,5 @@ body {
 
 @font-face {
     font-family: digiFont;
-    src: url(../fonts/DS-DIGI.ttf);
+    src: url(../fonts/ds-digi.ttf);
 }
