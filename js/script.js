@@ -1,11 +1,11 @@
 var moveCounter = 0;
 var colorOrder = [];
-var clickOrder = 0;
 var possibleColors = ['green', 'red', 'yellow', 'blue'];
 document.getElementById('visor').value = moveCounter;
 var color;
+var clickOrder = 0;
 
-
+//Starts the game
 document.getElementById("start").addEventListener("click", function(){
     document.getElementById('start').disabled = true;
     addColorSeq();
@@ -19,73 +19,79 @@ function addColorSeq() {
     runSeq();
 }
 
-var flag = false;
-
 function runSeq() {
-            colorOrder.forEach(function(seq) {
-                if (flag == false) {
-                    document.getElementById(seq).className += " selected";
-                    flag = true;
-                }             
-                setTimeout(function() {
-                    document.getElementById(seq).classList.remove("selected");
-                    flag = false;
-                }, 2000);
-                });        
+        clickOrder = 0;
+       let i = 0;
+       var interval = setInterval(function() {
+            lightOn(colorOrder[i]);
+            i++;
+            if (i >= colorOrder.length) {
+                console.log(colorOrder);
+                clearInterval(interval);
+            }
+       }, 600);
 }
+
+function lightOn(btn) {
+    document.getElementById(btn).className += " selected";
+    setTimeout(function() {
+        document.getElementById(btn).classList.remove('selected');
+    }, 300);
+}
+
 
 document.getElementById("green").addEventListener("click", function(){
     clickOrder++;
-    console.log(this.id);
-    console.log(colorOrder[clickOrder-1]);
     if (this.id == colorOrder[clickOrder-1]) {
         console.log('correct color');
     } else {
-        console.log('wrong color');
+        runSeq();
+        return;
     }
-    setTimeout(function() {
+    if (clickOrder >= colorOrder.length) {
         addColorSeq();
-    }, 1000);
-    
+    }
+        
 });
 
 document.getElementById("red").addEventListener("click", function(){
+    console.log(colorOrder);
     clickOrder++;
-    console.log(this.id);
-    console.log(colorOrder[clickOrder-1]);
     if (this.id == colorOrder[clickOrder-1]) {
         console.log('correct color');
     } else {
-        console.log('wrong color');
+        runSeq();
+        return;
     }
-    setTimeout(function() {
+    if (clickOrder >= colorOrder.length) {
         addColorSeq();
-    }, 1000);
+    }
 });
 
 document.getElementById("yellow").addEventListener("click", function(){
+    console.log(colorOrder);
     clickOrder++;
-    console.log(this.id);
-    console.log(colorOrder[clickOrder-1]);
+
     if (this.id == colorOrder[clickOrder-1]) {
         console.log('correct color');
     } else {
-        console.log('wrong color');
+        runSeq();
+        return;
     }
-    setTimeout(function() {
+    if (clickOrder >= colorOrder.length) {
         addColorSeq();
-    }, 1000);
+    }
 });
 document.getElementById("blue").addEventListener("click", function(){
+    console.log(colorOrder);
     clickOrder++;
-    console.log(this.id);
-    console.log(colorOrder[clickOrder-1]);
     if (this.id == colorOrder[clickOrder-1]) {
         console.log('correct color');
     } else {
-        console.log('wrong color');
+        runSeq();
+        return;
     }   
-    setTimeout(function() {
+    if (clickOrder >= colorOrder.length) {
         addColorSeq();
-    }, 1000);
+    }
 });
