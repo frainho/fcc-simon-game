@@ -23,6 +23,8 @@ body {
     float: left;
     border-radius: 100% 0 0 0;
     z-index: 100;
+    opacity: 0.5;
+    border:none;
 }
 
 #red {
@@ -35,6 +37,8 @@ body {
     float: right;
     border-radius: 0 100% 0 0;
     z-index: 100;
+    opacity: 0.5;
+    border:none;
 }
 
 #yellow {
@@ -47,6 +51,8 @@ body {
     float: left;
     border-radius: 0 0 0 100%;
     z-index: 100;
+    opacity: 0.5;
+    border:none;
 }
 
 #blue {
@@ -59,6 +65,8 @@ body {
     float: right;
     border-radius: 0 0 100% 0;
     z-index: 100;
+    opacity: 0.5;
+    border:none;
 }
 
 #centerBlack {
@@ -127,7 +135,7 @@ body {
 }
 
 .selected {
-    background-color: white !important;
+    opacity: 1 !important;
 }
 
 
