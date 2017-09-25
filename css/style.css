@@ -1,6 +1,5 @@
 body {
     background-color: #E0DCDB;
-    
 }
 
 #simonGame {
@@ -94,7 +93,7 @@ body {
     clear:both;
 }
 
-
+/*
 #visor {
     position: absolute;
     right: 78%;
@@ -107,6 +106,7 @@ body {
     font-family: digiFont;
     color:#CA070F;
 }
+
 
 #strict {
     position: absolute;
@@ -133,7 +133,7 @@ body {
     line-height:50px;
     border:none;
 }
-
+*/
 .selected {
     opacity: 1 !important;
 }

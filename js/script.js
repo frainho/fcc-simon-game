@@ -1,13 +1,25 @@
 var moveCounter = 0;
 var colorOrder = [];
 var possibleColors = ['green', 'red', 'yellow', 'blue'];
-document.getElementById('visor').value = moveCounter;
 var color;
 var clickOrder = 0;
-var audio1 = new Audio('./sounds/simonSound1.mp3');
-var audio2 = new Audio('./sounds/simonSound2.mp3');
-var audio3 = new Audio('./sounds/simonSound3.mp3');
-var audio4 = new Audio('./sounds/simonSound4.mp3');
+var strict = false;
+
+document.getElementById('visor').value = moveCounter;
+
+document.getElementById("strict").addEventListener("click", function () {
+    let btnText;
+    if (strict) {
+        strict = false;
+        btnText = document.getElementById("strict");
+        btnText.innerHTML = 'Strict Off';
+    } else{
+        strict = true;
+        btnText = document.getElementById("strict");
+        btnText.innerHTML = 'Strict On';
+    }
+    alert('You can now start the game with ' + btnText.innerHTML);
+});
 
 //Starts the game
 document.getElementById("start").addEventListener("click", function () {
@@ -16,11 +28,15 @@ document.getElementById("start").addEventListener("click", function () {
 });
 
 function addColorSeq() {
-    moveCounter++;
-    document.getElementById('visor').value = moveCounter;
-    color = possibleColors[Math.floor(Math.random() * possibleColors.length)];
-    colorOrder.push(color);
-    runSeq();
+    if (moveCounter == 20) {
+        alert('You win');
+    } else {
+        moveCounter++;
+        document.getElementById('visor').value = moveCounter;
+        color = possibleColors[Math.floor(Math.random() * possibleColors.length)];
+        colorOrder.push(color);
+        runSeq();
+    }
 }
 
 function runSeq() {
@@ -50,8 +66,11 @@ document.getElementById("green").addEventListener("click", function () {
     lightOn('green');
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
-    } else {
+    } else if (strict == false){
         runSeq();
+        return;
+    } else {
+        reset();
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -68,8 +87,11 @@ document.getElementById("red").addEventListener("click", function () {
     lightOn('red');
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
-    } else {
+    } else if (strict == false){
         runSeq();
+        return;
+    } else {
+        reset();
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -85,8 +107,11 @@ document.getElementById("yellow").addEventListener("click", function () {
     lightOn('yellow');
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
-    } else {
+    } else if (strict == false){
         runSeq();
+        return;
+    } else {
+        reset();
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -101,8 +126,11 @@ document.getElementById("blue").addEventListener("click", function () {
     lightOn('blue');
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
-    } else {
+    } else if (strict == false){
         runSeq();
+        return;
+    } else {
+        reset();
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -113,6 +141,10 @@ document.getElementById("blue").addEventListener("click", function () {
 });
 
 function soundEngine(sound) {
+    let audio1 = new Audio('./sounds/simonSound1.mp3');
+    let audio2 = new Audio('./sounds/simonSound2.mp3');
+    let audio3 = new Audio('./sounds/simonSound3.mp3');
+    let audio4 = new Audio('./sounds/simonSound4.mp3');    
     if (sound == 'red') {
         audio1.play();
     } else if (sound == 'blue') {
@@ -123,3 +155,16 @@ function soundEngine(sound) {
         audio4.play();
     }
 } 
+
+function reset() {
+    let failAudio= new Audio('./sounds/fail.mp3');
+    failAudio.playbackRate = 3;
+    failAudio.play();
+    clickOrder = 0;
+    moveCounter = 0;
+    colorOrder = [];
+    document.getElementById('visor').value = moveCounter;
+    setTimeout(function() {
+        addColorSeq();
+    }, 3000);
+}
