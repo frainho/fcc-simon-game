@@ -1,5 +1,6 @@
 body {
-    background-color: #E0DCDB;
+    background-color: #0074D9;
+    color: white;
 }
 
 #simonGame {
@@ -93,47 +94,71 @@ body {
     clear:both;
 }
 
-/*
+
 #visor {
     position: absolute;
-    right: 78%;
-    bottom: 90px;
-    width: 25px;
+    right: 64%;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 3em;
     margin:auto;
-    text-align: center;
+    text-align: right;
     z-index: 101;
     background-color: black;
     font-family: digiFont;
     color:#CA070F;
+    border: 2px solid grey ;
 }
 
 
 #strict {
     position: absolute;
-    bottom: 65px;
+    bottom: 49px;
     right: 10%;
-    text-align: center;
     z-index: 101;
-    border-radius:50%;
-    width:50px;
-    height:50px;
-    line-height:50px;
+    width:100px;
+    height:25px;
     border:none;
+    background-color: #0074D9;
+    color: white;
 }
+
+
 
 #start {
     position: absolute;
-    bottom: 65px;
-    right: 45%;
-    text-align: center;
-    z-index: 102;
-    border-radius:50%;
-    width:50px;
-    height:50px;
-    line-height:50px;
+    bottom: 76px;
+    right: 10%;
+    z-index: 101;
+    width:100px;
+    height:25px;
     border:none;
+    background-color: #0074D9;
+    color: white;
 }
-*/
+
+
+button:focus {
+    outline:none;
+}
+
+#start:hover {
+    background-color: #328fe0;
+}
+
+#start:active {
+    background-color: #005cad;
+}
+
+#strict:hover {
+    background-color: #328fe0;
+}
+
+#strict:active {
+    background-color: #005cad;
+}
+
 .selected {
     opacity: 1 !important;
 }

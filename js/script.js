@@ -4,6 +4,7 @@ var possibleColors = ['green', 'red', 'yellow', 'blue'];
 var color;
 var clickOrder = 0;
 var strict = false;
+var error = new Audio('./sounds/error.mp3');
 
 document.getElementById('visor').value = moveCounter;
 
@@ -28,8 +29,11 @@ document.getElementById("start").addEventListener("click", function () {
 });
 
 function addColorSeq() {
-    if (moveCounter == 20) {
-        alert('You win');
+    let winnerSound = new Audio('./sounds/winner.mp3');
+    if (moveCounter == 3) {
+        document.getElementById('visor').value = 'OO';
+        winnerSound.playbackRate = 3;
+        winnerSound.play();
     } else {
         moveCounter++;
         document.getElementById('visor').value = moveCounter;
@@ -40,6 +44,15 @@ function addColorSeq() {
 }
 
 function runSeq() {
+    document.getElementById('visor').value = moveCounter;
+    let colorTiming = 0;
+    if (moveCounter < 9) {
+        colorTiming = 600;
+    } else if (moveCounter >= 9 && moveCounter < 15) {
+        colorTiming = 400;
+    } else {
+        colorTiming = 200;
+    }
     clickOrder = 0;
     let i = 0;
     var interval = setInterval(function () {
@@ -47,13 +60,20 @@ function runSeq() {
         soundEngine(colorOrder[i]);
         i++;
         if (i >= colorOrder.length) {
-            console.log(colorOrder);
             clearInterval(interval);
         }
-    }, 600);
+    }, colorTiming);
 }
 
 function lightOn(btn) {
+    let lightOnOff = 0;
+    if (moveCounter < 9) {
+        lightOnOff = 300;
+    } else if (moveCounter >= 9 && moveCounter < 15) {
+        lightOnOff = 150;
+    } else {
+        lightOnOff = 75;
+    }
     document.getElementById(btn).className += " selected";
     setTimeout(function () {
         document.getElementById(btn).classList.remove('selected');
@@ -67,10 +87,24 @@ document.getElementById("green").addEventListener("click", function () {
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
     } else if (strict == false){
-        runSeq();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            runSeq();
+        }, 2000);
         return;
     } else {
-        reset();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            reset();
+        }, 2000);
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -88,10 +122,24 @@ document.getElementById("red").addEventListener("click", function () {
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
     } else if (strict == false){
-        runSeq();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            runSeq();
+        }, 2000);
         return;
     } else {
-        reset();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            reset();
+        }, 2000);
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -108,10 +156,24 @@ document.getElementById("yellow").addEventListener("click", function () {
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
     } else if (strict == false){
-        runSeq();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            runSeq();
+        }, 2000);
         return;
     } else {
-        reset();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            reset();
+        }, 2000);
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -120,6 +182,7 @@ document.getElementById("yellow").addEventListener("click", function () {
         }, 1000);
     }
 });
+
 document.getElementById("blue").addEventListener("click", function () {
     clickOrder++;
     soundEngine('blue');
@@ -127,10 +190,24 @@ document.getElementById("blue").addEventListener("click", function () {
     if (this.id == colorOrder[clickOrder - 1]) {
         console.log('correct color');
     } else if (strict == false){
-        runSeq();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            runSeq();
+        }, 2000);
         return;
     } else {
-        reset();
+        document.getElementById('visor').value = 'XX';
+        error.playbackRate = 2;
+        setTimeout(function() {
+            error.play();
+        }, 1000);
+        setTimeout(function() {
+            reset();
+        }, 2000);
         return;
     }
     if (clickOrder >= colorOrder.length) {
@@ -157,7 +234,7 @@ function soundEngine(sound) {
 } 
 
 function reset() {
-    let failAudio= new Audio('./sounds/fail.mp3');
+    let failAudio = new Audio('./sounds/fail.mp3');
     failAudio.playbackRate = 3;
     failAudio.play();
     clickOrder = 0;
