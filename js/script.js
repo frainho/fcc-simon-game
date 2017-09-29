@@ -5,6 +5,7 @@ var color;
 var clickOrder = 0;
 var strict = false;
 var error = new Audio('./sounds/error.mp3');
+var startedGame = false;
 
 document.getElementById('visor').value = moveCounter;
 
@@ -25,6 +26,8 @@ document.getElementById("strict").addEventListener("click", function () {
 //Starts the game
 document.getElementById("start").addEventListener("click", function () {
     document.getElementById('start').disabled = true;
+    document.getElementById('strict').disabled = true;
+    startedGame = true;
     addColorSeq();
 });
 
@@ -34,6 +37,11 @@ function addColorSeq() {
         document.getElementById('visor').value = 'OO';
         winnerSound.playbackRate = 3;
         winnerSound.play();
+        document.getElementById('start').disabled = false;
+        document.getElementById('strict').disabled = false;
+        clickOrder = 0;
+        moveCounter = 0;
+        colorOrder = [];
     } else {
         moveCounter++;
         document.getElementById('visor').value = moveCounter;
@@ -81,140 +89,148 @@ function lightOn(btn) {
 }
 
 document.getElementById("green").addEventListener("click", function () {
-    clickOrder++;
-    soundEngine('green');
-    lightOn('green');
-    if (this.id == colorOrder[clickOrder - 1]) {
-        console.log('correct color');
-    } else if (strict == false){
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            runSeq();
-        }, 2000);
-        return;
-    } else {
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            reset();
-        }, 2000);
-        return;
+    if (startedGame) {
+        clickOrder++;
+        soundEngine('green');
+        lightOn('green');
+        if (this.id == colorOrder[clickOrder - 1]) {
+        } else if (strict == false){
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                runSeq();
+            }, 2000);
+            return;
+        } else {
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                reset();
+            }, 2000);
+            return;
+        }
+        if (clickOrder >= colorOrder.length) {
+            setTimeout(function() {
+                addColorSeq();
+            }, 1000);
+        }
     }
-    if (clickOrder >= colorOrder.length) {
-        setTimeout(function() {
-            addColorSeq();
-        }, 1000);
-    }
+
 
 });
 
 document.getElementById("red").addEventListener("click", function () {
-    clickOrder++;
-    soundEngine('red');
-    lightOn('red');
-    if (this.id == colorOrder[clickOrder - 1]) {
-        console.log('correct color');
-    } else if (strict == false){
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            runSeq();
-        }, 2000);
-        return;
-    } else {
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            reset();
-        }, 2000);
-        return;
+    if (startedGame) {
+        clickOrder++;
+        soundEngine('red');
+        lightOn('red');
+        if (this.id == colorOrder[clickOrder - 1]) {
+        } else if (strict == false){
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                runSeq();
+            }, 2000);
+            return;
+        } else {
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                reset();
+            }, 2000);
+            return;
+        }
+        if (clickOrder >= colorOrder.length) {
+            setTimeout(function() {
+                addColorSeq();
+            }, 1000);
+        }
     }
-    if (clickOrder >= colorOrder.length) {
-        setTimeout(function() {
-            addColorSeq();
-        }, 1000);
-    }
+
 });
 
 document.getElementById("yellow").addEventListener("click", function () {
-    clickOrder++;
-    soundEngine('yellow');
-    lightOn('yellow');
-    if (this.id == colorOrder[clickOrder - 1]) {
-        console.log('correct color');
-    } else if (strict == false){
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            runSeq();
-        }, 2000);
-        return;
-    } else {
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            reset();
-        }, 2000);
-        return;
+    if (startedGame) {
+        clickOrder++;
+        soundEngine('yellow');
+        lightOn('yellow');
+        if (this.id == colorOrder[clickOrder - 1]) {
+        } else if (strict == false){
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                runSeq();
+            }, 2000);
+            return;
+        } else {
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                reset();
+            }, 2000);
+            return;
+        }
+        if (clickOrder >= colorOrder.length) {
+            setTimeout(function() {
+                addColorSeq();
+            }, 1000);
+        }
     }
-    if (clickOrder >= colorOrder.length) {
-        setTimeout(function() {
-            addColorSeq();
-        }, 1000);
-    }
+
 });
 
 document.getElementById("blue").addEventListener("click", function () {
-    clickOrder++;
-    soundEngine('blue');
-    lightOn('blue');
-    if (this.id == colorOrder[clickOrder - 1]) {
-        console.log('correct color');
-    } else if (strict == false){
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            runSeq();
-        }, 2000);
-        return;
-    } else {
-        document.getElementById('visor').value = 'XX';
-        error.playbackRate = 2;
-        setTimeout(function() {
-            error.play();
-        }, 1000);
-        setTimeout(function() {
-            reset();
-        }, 2000);
-        return;
+    if (startedGame) {
+        clickOrder++;
+        soundEngine('blue');
+        lightOn('blue');
+        if (this.id == colorOrder[clickOrder - 1]) {
+        } else if (strict == false){
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                runSeq();
+            }, 2000);
+            return;
+        } else {
+            document.getElementById('visor').value = 'XX';
+            error.playbackRate = 2;
+            setTimeout(function() {
+                error.play();
+            }, 1000);
+            setTimeout(function() {
+                reset();
+            }, 2000);
+            return;
+        }
+        if (clickOrder >= colorOrder.length) {
+            setTimeout(function() {
+                addColorSeq();
+            }, 1000);
+        }
     }
-    if (clickOrder >= colorOrder.length) {
-        setTimeout(function() {
-            addColorSeq();
-        }, 1000);
-    }
+
 });
 
 function soundEngine(sound) {

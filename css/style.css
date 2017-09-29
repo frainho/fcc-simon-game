@@ -1,6 +1,9 @@
 body {
     background-color: #0074D9;
     color: white;
+    text-align: center;
+    font-family: "Arial", Times, serif;
+
 }
 
 #simonGame {
@@ -111,6 +114,21 @@ body {
     border: 2px solid grey ;
 }
 
+button:focus {
+    outline:none;
+}
+
+button:disabled {
+    background-color: grey !important;
+}
+
+button:hover {
+    background-color: #328fe0 !important;
+}
+
+button:active {
+    background-color: #005cad !important;
+}
 
 #strict {
     position: absolute;
@@ -139,25 +157,8 @@ body {
 }
 
 
-button:focus {
-    outline:none;
-}
 
-#start:hover {
-    background-color: #328fe0;
-}
 
-#start:active {
-    background-color: #005cad;
-}
-
-#strict:hover {
-    background-color: #328fe0;
-}
-
-#strict:active {
-    background-color: #005cad;
-}
 
 .selected {
     opacity: 1 !important;
@@ -173,3 +174,122 @@ button:focus {
     font-family: digiFont;
     src: url(../fonts/ds-digi.ttf);
 }
+
+hr {
+    margin-top: 25px;
+    width:25%;
+  }
+
+  a {
+    color:black;
+  }
+  
+  a:hover {
+    color:grey;
+  }
+
+/* Media Queries */
+
+@media screen and (max-width: 700px) {
+    
+    hr {
+    margin-top: 60px;
+    width:50%;
+  }
+  }
+
+  @media screen and (max-width: 480px) {
+
+    #simonGame {
+        background-color:black;
+        height:300px;
+        width:300px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 99;
+        border-radius: 50%;
+    }
+
+    #green {
+        background-color: green;
+        height: 120px;
+        width:120px;
+        position: relative;
+        top: 20px;
+        left:20px;
+        float: left;
+        border-radius: 100% 0 0 0;
+        z-index: 100;
+        opacity: 0.5;
+        border:none;
+    }
+    
+    #red {
+        background-color: red;
+        height: 120px;
+        width:120px;
+        position: relative;
+        top: 20px;
+        left: -20px;
+        float: right;
+        border-radius: 0 100% 0 0;
+        z-index: 100;
+        opacity: 0.5;
+        border:none;
+    }
+    
+    #yellow {
+        background-color: yellow;
+        height:120px;
+        width:120px;
+        position: relative;
+        top: 10px;
+        left:20px;
+        float: left;
+        border-radius: 0 0 0 100%;
+        z-index: 100;
+        opacity: 0.5;
+        border:none;
+    }
+    
+    #blue {
+        background-color: blue;
+        height: 120px;
+        width:120px;
+        position: relative;
+        top: 10px;
+        left: -20px;
+        float: right;
+        border-radius: 0 0 100% 0;
+        z-index: 100;
+        opacity: 0.5;
+        border:none;
+    }
+
+    #centerBlack {
+        height: 150px;
+        width:200px;
+        left:60px;
+        top: 325px;
+        position: relative;
+        z-index: 101;
+        background-color: black;
+        text-align: center; 
+        border-radius: 20%;
+    }
+
+    #simonText {
+        color:white;
+        position: relative;
+        bottom: 120px;
+        font-size: 2.75em;
+        font-family: electrFont;
+        z-index: 101;
+    }
+
+    
+    hr {
+    margin-top: 200px;
+    width:75%;
+  }
+  }  
