@@ -33,7 +33,7 @@ document.getElementById("start").addEventListener("click", function () {
 
 function addColorSeq() {
     let winnerSound = new Audio('./sounds/winner.mp3');
-    if (moveCounter == 3) {
+    if (moveCounter == 20) {
         document.getElementById('visor').value = 'OO';
         winnerSound.playbackRate = 3;
         winnerSound.play();
